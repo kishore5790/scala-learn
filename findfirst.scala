@@ -1,0 +1,21 @@
+object mod {
+  //mod.findFirst(Array("A", "b", "C"), "b")
+  def findFirst(ss: Array[String], key: String): Int = {
+    @annotation.tailrec
+    def loop(n: Int): Int =
+      if (n >= ss.length) -1
+      else if (ss(n) == key) n
+      else loop(n + 1)
+      loop(0)
+  }
+
+  //mod.findFirst2(Array("A", "b", "C"), (x: String) => x=="b")
+  def findFirst2[A](as: Array[A], p: A => Boolean): Int = {
+    @annotation.tailrec
+    def loop(n: Int): Int =
+      if (n >= as.length) -1
+      else if (p(as(n))) n
+      else loop(n + 1)
+      loop(0)
+  }
+}
