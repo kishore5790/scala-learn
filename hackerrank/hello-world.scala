@@ -1,5 +1,5 @@
+// repeat string n times
 object Solution extends App {
-
  def f(n: Int): List[Nothing] = {
     @annotation.tailrec
     def loop(current: Int, max: Int): List[Nothing] = {
