@@ -21,16 +21,18 @@ object Solution {
       else
         take_alternates(as.tail, bs, index + 1)
     }
-    val input = io.Source.stdin.getLines().toList.tail
-    val lines = take_alternates(input, Nil, 0).reverse
-    for (line <- lines) {
-      val ints = line.split(" ").toList.map(_.toInt)
+
+    def process(s: String) = {
+      val ints = s.split(" ").toList.map(_.toInt)
       val is_valid = is_valid_bst(ints)
       if(is_valid)
         println("YES")
       else
         println("NO")
     }
+    val input = io.Source.stdin.getLines().toList.tail
+    val lines = take_alternates(input, Nil, 0).reverse
+    lines.foreach(process)
   }
 }
 
