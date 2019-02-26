@@ -1,5 +1,5 @@
 // check if valid bst
-object Solution extends App {
+object Solution {
   def is_valid_bst(as: List[Int]): Boolean = {
     if (as == Nil) return(true)
     val head = as.head
@@ -27,9 +27,9 @@ object Solution extends App {
       val ints = line.split(" ").toList.map(_.toInt)
       val is_valid = is_valid_bst(ints)
       if(is_valid)
-        print("YES")
+        println("YES")
       else
-        print("NO")
+        println("NO")
     }
   }
 }
