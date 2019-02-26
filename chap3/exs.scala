@@ -1,4 +1,5 @@
 object mod {
+  // remove one element from head
   def tail[A](as: List[A]): List[A] = {
     as match {
       case Cons(x, y) => y
@@ -6,6 +7,7 @@ object mod {
     }
   }
 
+  // set an element at head
   def setHead[A](as: List[A], rep: A): List[A] = {
     as match {
       case Cons(x, y) => Cons(rep, y)
@@ -13,6 +15,7 @@ object mod {
     }
   }
 
+  // drop n elements from head
   def drop[A](as: List[A], n: Int): List[A] = {
     @annotation.tailrec
     def tail_one(as: List[A], current: Int, max: Int): List[A] = {
@@ -30,6 +33,7 @@ object mod {
     tail_one(as, 0, n)
   }
 
+  // drop elements from head while they satisfy a condition
   //mod.dropWhile(List(2,2,2,3,2,1), (x: Int) => x==2)
   def dropWhile[A](as: List[A], f: A => Boolean): List[A] = {
     @annotation.tailrec
@@ -42,6 +46,7 @@ object mod {
     tail_one(as, f)
   }
 
+  // drop one element from the tail
   //mod.init(List(2,2,2,3,2,1))
   def init[A](as: List[A]): List[A] = {
     @annotation.tailrec
